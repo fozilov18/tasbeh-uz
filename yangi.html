@@ -1,0 +1,139 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+        <title>tasbeh.uz</title>
+
+    
+        <link rel="icon" href="image copy.png">
+
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+                font-family: sans-serif;
+            }
+
+            body {
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                
+                background: url(image.png) no-repeat center/cover;
+                background-size: cover;
+            }
+
+            .box {
+                background: rgba(255, 255, 255, 0.15);
+                backdrop-filter: blur(10px);
+                padding: 30px;
+                border-radius: 20px;
+                text-align: center;
+                color: white;
+                box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            }
+
+            h2 {
+                margin-bottom: 20px;
+                font-size: 28px;
+                color: red;
+            }
+
+            .count {
+                font-size: 50px;
+                margin-bottom: 20px;
+            }
+
+            .btns {
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+            }
+
+            button {
+                width: 60px;
+                height: 60px;
+                border: none;
+                border-radius: 15px;
+                font-size: 25px;
+                cursor: pointer;
+                transition: 0.2s;
+            }
+
+            button:hover {
+                transform: scale(1.1);
+            }
+
+            .plus {
+                background: #4CAF50;
+                color: white;
+            }
+
+            .minus {
+                background: #f44336;
+                color: white;
+            }
+
+            .reset {
+                background: #2196F3;
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="box">
+            <h2>🕌 Tasbeh</h2>
+            <div class="count" id="count">0</div>
+
+            <div class="btns">
+                <button class="plus" onclick="p()">+</button>
+                <button class="minus" onclick="m()">-</button>
+                <button class="reset" onclick="r()">↺</button>
+            </div>
+        </div>
+
+
+        <audio id="clickSound" src="universfield-click-button-140881.mp3"></audio>
+
+        <script>
+            let i = 0;
+            let sound = document.getElementById("clickSound");
+
+            function playSound() {
+                sound.currentTime = 0;
+                sound.play();
+            }
+
+            function p() {
+                i++;
+                document.getElementById("count").innerHTML = i;
+                playSound();
+            }
+
+            function m() {
+                if (i > 0) {
+                    i--;
+                    document.getElementById("count").innerHTML = i;
+                    playSound();
+                }
+            }
+
+            function r() {
+                i = 0;
+                document.getElementById("count").innerHTML = i;
+                playSound();
+            }
+        </script>
+
+    </body>
+
+    </html>
